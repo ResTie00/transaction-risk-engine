@@ -117,6 +117,12 @@
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>3.2.0</version> <!-- или 3.2.0 для Spring Boot 4 -->
+        </dependency>
+
 
     </dependencies>
 
