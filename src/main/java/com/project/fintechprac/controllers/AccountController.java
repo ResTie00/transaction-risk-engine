@@ -14,7 +14,7 @@ import java.net.URI;
 @RestController
 @RequestMapping("/api/v1/accounts")
 @RequiredArgsConstructor
-class AccountController {
+public class AccountController {
     private final AccountService accountService;
 
     @PostMapping

@@ -12,7 +12,7 @@ import java.time.Instant;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Builder
+@Builder(toBuilder = true)
 
 public class Transaction extends BaseEntity {
     @Column(name = "external_id", length = 64, nullable = false, unique = true, updatable = false)

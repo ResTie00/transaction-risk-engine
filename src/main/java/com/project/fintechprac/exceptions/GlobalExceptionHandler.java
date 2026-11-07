@@ -47,4 +47,14 @@ public class GlobalExceptionHandler {
         log.warn("Data integrity violation", ex);
         return problem(HttpStatus.CONFLICT, "Request conflicts with existing methods");
     }
+
+    @ExceptionHandler(DuplicateTransactionException.class)
+    public ProblemDetail handleDuplicateTransaction(DuplicateTransactionException ex) {
+        return problem(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
+    @ExceptionHandler(TransactionNotFoundException.class)
+    public ProblemDetail handleTransactionNotFound(TransactionNotFoundException ex) {
+        return problem(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
 }
