@@ -102,4 +102,25 @@ public class AmountThresholdRuleTest {
     }
 
 
+    @Test
+    void doesNotFireWhenAmountEqualsThresholdWithScale(){
+        Transaction tx = Transaction.builder()
+                .amount(new BigDecimal(10000.0000))
+                .currency("USD")
+                .build();
+        Optional<FiredRule> result = evaluator.evaluate(tx, rule);
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    void doesFireWhenAmountSlightlyGreaterThanThresholdWithScale(){
+        Transaction tx = Transaction.builder()
+                .amount(new BigDecimal(10000.0001))
+                .currency("USD")
+                .build();
+        Optional<FiredRule> result = evaluator.evaluate(tx, rule);
+        assertThat(result).isPresent();
+        }
+
+
 }
